@@ -1,0 +1,17 @@
+.Orders__order {
+    width: 90%;
+    align-items: center;
+    border-radius: 20px;
+    margin: 10px 20px;
+    background: hsl(189deg 100% 93%);
+    padding: 15px 0;
+    justify-content: space-between;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+.Orders__order__name {
+    color: #8ea449;
+}

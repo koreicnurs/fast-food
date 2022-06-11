@@ -1,8 +1,9 @@
 import React from 'react';
+import './Price.css';
 
 const Price = (props) => {
     return (
-        <div className='price'>{props.price}</div>
+        <div className='Orders__order__price-total'>{props.price}</div>
     );
 };
 

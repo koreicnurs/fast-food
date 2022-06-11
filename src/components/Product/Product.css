@@ -1,0 +1,24 @@
+.Products__product {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 45%;
+    background: #e9ecef;
+    border-radius: 30px;
+    margin: 20px 10px;
+}
+
+.Products__product:hover {
+    background: #dfe7ac;
+    border: 5px solid #dec8a9;
+    transition: 0.7s;
+}
+
+.Products__product__img  {
+    width: 60%;
+    flex-grow: 1;
+}
+
+.Products__product__name {
+    color: #865e1a;
+}

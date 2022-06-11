@@ -1,0 +1,21 @@
+#root {
+    display: flex;
+    color: #838119;
+}
+
+.Orders {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    background: #f5f5dc;
+}
+
+.Products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 60%;
+    background: #f5f5dc;
+}
+

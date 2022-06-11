@@ -4,6 +4,7 @@ import {Products} from "./Products";
 import Order from "./components/Orders/Order";
 import Button from "./components/Buttons/Button";
 import Price from "./components/Price/Price";
+import './App.css'
 
 const App = () => {
 
@@ -59,7 +60,7 @@ const App = () => {
         const total = eachPrice.reduce((a, b) => a + b) + price;
 
         if (total > 0) {
-            return `Total: ${total}`;
+            return `Total: ${total} KGS`;
         } else {
             return 'Are you starving?';
         }
@@ -114,11 +115,15 @@ const App = () => {
 
     return (
         <>
-            {renderOrders}
-            <Price
-                price={getTotalPrice()}
-            />
-            {objProduct}
+            <div className='Orders'>
+                {renderOrders}
+                <Price
+                    price={getTotalPrice()}
+                />
+            </div>
+            <div className='Products'>
+                {objProduct}
+            </div>
         </>
     );
 };
