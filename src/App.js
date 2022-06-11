@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Product from "./components/Product/Product";
 import {Products} from "./Products";
 import Order from "./components/Orders/Order";
+import Button from "./components/Buttons/Button";
 
 const App = () => {
 
@@ -35,6 +36,25 @@ const App = () => {
         }).price;
     };
 
+    const deleteOrder = (name) => {
+        const copyOrders = orders.map(r => {
+            if (r.name === name && r.count > 0) {
+                return {
+                    ...r,
+                    count: r.count - 1,
+                };
+            } else if (r.name === name && r.count <= 0) {
+                return {
+                    ...r,
+                    count: 0,
+                };
+            }
+
+            return r;
+        })
+        setOrders(copyOrders);
+    }
+
     const renderOrders = orders.map((r, index) => {
         if (r.count > 0) {
             return (
@@ -43,7 +63,12 @@ const App = () => {
                     name={r.name}
                     count={r.count}
                     price={getPrice(r.name)}
-                />)
+                >
+                    <Button
+                        delete={() => deleteOrder(r.name)}
+                    />
+                </Order>
+            )
         }
 
     });

@@ -6,6 +6,7 @@ const Order = (props) => {
             <p>{props.name}</p>
             <p>x{props.count}</p>
             <p>{props.price}</p>
+            {props.children}
         </div>
     );
 };
