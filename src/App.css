@@ -1,14 +1,13 @@
 #root {
     display: flex;
     color: #838119;
+    background: #f5f5dc;
 }
 
 .Orders {
     display: flex;
     flex-direction: column;
-    align-items: center;
     flex-grow: 1;
-    background: #f5f5dc;
 }
 
 .Products {
@@ -16,6 +15,19 @@
     justify-content: center;
     flex-wrap: wrap;
     width: 60%;
-    background: #f5f5dc;
+}
+
+@media screen and (max-width: 860px) {
+    #root {
+        flex-direction: column;
+    }
+
+    .Orders {
+
+    }
+
+    .Products {
+        width: 100%;
+    }
 }
 

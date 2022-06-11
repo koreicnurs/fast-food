@@ -1,17 +1,30 @@
 .Orders__order {
-    width: 90%;
+    display: flex;
+    flex-direction: row;
+    max-width: 90%;
     align-items: center;
     border-radius: 20px;
     margin: 10px 20px;
     background: hsl(189deg 100% 93%);
-    padding: 15px 0;
-    justify-content: space-between;
+    padding: 15px 30px;
 }
 
 p {
-    margin-bottom: 10px;
+    margin: 0;
 }
 
 .Orders__order__name {
     color: #8ea449;
+    flex-grow: 1;
+    margin: 0;
+    width: 100%;
+}
+
+.Orders__order__count {
+    margin-right: 50px;
+}
+
+.Orders__order__price {
+    margin-right: 20px;
+    width: 150px;
 }

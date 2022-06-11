@@ -1,8 +1,7 @@
 .Orders__order__price-total {
     display: flex;
-    align-items: center;
     font-size: 30px;
-    flex-grow: 1;
-    border-top: 10px solid #00b1ff;
     color: #478094;
+    justify-content: end;
+    margin-right: 50px;
 }
