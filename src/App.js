@@ -3,6 +3,7 @@ import Product from "./components/Product/Product";
 import {Products} from "./Products";
 import Order from "./components/Orders/Order";
 import Button from "./components/Buttons/Button";
+import Price from "./components/Price/Price";
 
 const App = () => {
 
@@ -13,7 +14,9 @@ const App = () => {
         {name: 'Coffee', count: 0},
         {name: 'Tea', count: 0},
         {name: 'Cola', count: 0},
-    ])
+    ]);
+
+    const [price] = useState(0);
 
     const addOrder = (name) => {
         const copyOrders = orders.map(o => {
@@ -21,19 +24,46 @@ const App = () => {
                 return {
                     ...o,
                     count: o.count + 1,
-                }
+                };
             } else {
                 return o;
             }
         });
 
         setOrders(copyOrders);
-    }
+    };
 
     const getPrice = (name) => {
         return Products.find(product => {
             return product.name === name;
         }).price;
+    };
+
+    const getTotalPrice = () => {
+        let allPrice = [];
+        let allCount = [];
+        let eachPrice = [];
+
+        orders.map(order => {
+            return allCount.push(order.count);
+        });
+
+        Products.map(product => {
+            return allPrice.push(product.price);
+        });
+
+        for (let p = 0; p < allPrice.length; p++) {
+            eachPrice.push(allPrice[p] * allCount[p]);
+        }
+
+        const total = eachPrice.reduce((a, b) => a + b) + price;
+
+        if (total > 0) {
+            return `Total: ${total}`;
+        } else {
+            return 'Are you starving?';
+        }
+
     };
 
     const deleteOrder = (name) => {
@@ -53,7 +83,7 @@ const App = () => {
             return r;
         })
         setOrders(copyOrders);
-    }
+    };
 
     const renderOrders = orders.map((r, index) => {
         if (r.count > 0) {
@@ -68,9 +98,8 @@ const App = () => {
                         delete={() => deleteOrder(r.name)}
                     />
                 </Order>
-            )
+            );
         }
-
     });
 
     const objProduct = Products.map((p, index) => (
@@ -86,6 +115,9 @@ const App = () => {
     return (
         <>
             {renderOrders}
+            <Price
+                price={getTotalPrice()}
+            />
             {objProduct}
         </>
     );
